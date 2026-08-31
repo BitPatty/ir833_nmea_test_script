@@ -38,6 +38,9 @@ def parse_gprmc(sentence, device_name="GPS"):
         if len(fields) > 13:
             print(f"Nav Status: {fields[13].split('*')[0]}")
 
+        # Validity check
+        print(f"RMC Valid?: {msg.is_valid}")
+
         print("Checksum:  VALID")
 
     except pynmea2.ChecksumError:
